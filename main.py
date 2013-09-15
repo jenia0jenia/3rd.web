@@ -7,11 +7,9 @@ bufsize = 1024
 sock = socket.socket()
 sock.bind((host, port))
 sock.listen(1)
-conn, addr = sock.accept()
-
-print 'connected:', addr
 
 while True:
+    conn, addr = sock.accept()
     data = conn.recv(1024)
     conn.send(data)
     if not data:
